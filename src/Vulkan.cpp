@@ -1,17 +1,17 @@
 #include "Vulkan.h"
 
 #ifdef GLW_VULKAN
-	inline bool GLW::Vulkan::vulkanSupported()
+	inline bool GLW::vulkanSupported()
 	{
 		return glfwVulkanSupported();
 	}
 
-	inline const char** GLW::Vulkan::getRequiredInstanceExtensions(uint32_t* count)
+	inline const char** GLW::getRequiredInstanceExtensions(uint32_t* count)
 	{
 		return glfwGetRequiredInstanceExtensions(count);
 	}
 
-	std::vector<const char*> GLW::Vulkan::getRequiredInstanceExtensions()
+	std::vector<const char*> GLW::getRequiredInstanceExtensions()
 	{
 		std::vector<const char*> temp;
 		uint32_t count;
@@ -23,17 +23,17 @@
 	}
 
 	#ifdef VK_VERSION_1_0
-		inline GLFWvkproc GLW::Vulkan::getInstanceProcAddress(VkInstance instance, std::string_view procname)
+		inline GLFWvkproc GLW::getInstanceProcAddress(VkInstance instance, std::string_view procname)
 		{
 			return glfwGetInstanceProcAddress(instance, procname.data());
 		}
 
-		inline int GLW::Vulkan::getPhysicalDevicePresentationSupport(VkInstance instance, VkPhysicalDevice device, uint32_t queuefamily)
+		inline int GLW::getPhysicalDevicePresentationSupport(VkInstance instance, VkPhysicalDevice device, uint32_t queuefamily)
 		{
 			return glfwGetPhysicalDevicePresentationSupport(instance, device, queuefamily);
 		}
 
-		inline VkResult GLW::Vulkan::createWindowSurface(VkInstance instance, GLFWwindow* window, const VkAllocationCallbacks* allocator, VkSurfaceKHR* surface)
+		inline VkResult GLW::createWindowSurface(VkInstance instance, GLFWwindow* window, const VkAllocationCallbacks* allocator, VkSurfaceKHR* surface)
 		{
 			return glfwCreateWindowSurface(instance, window, allocator, surface);
 		}

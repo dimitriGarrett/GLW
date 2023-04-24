@@ -20,7 +20,7 @@ namespace GLW
 
 		~WindowWrapper()
 		{
-			GLW::Window::destroyWindow(window);
+			GLW::destroyWindow(window);
 		}
 
 		operator GLFWwindow*() const
@@ -30,11 +30,11 @@ namespace GLW
 
 		void create(GLFWmonitor* monitor = nullptr, GLFWwindow* share = nullptr)
 		{
-			window = GLW::Window::createWindow(width(), height(), name.c_str(), monitor, share);
+			window = GLW::createWindow(width(), height(), name.c_str(), monitor, share);
 
 			if (window == nullptr)
 			{
-				auto err = GLW::Init::getError();
+				auto err = GLW::getError();
 
 				if (err.first != GLW::ErrorCode::NO_ERROR)
 				{
@@ -42,299 +42,299 @@ namespace GLW
 				}
 			}
 
-			Context::makeContextCurrent(window);
+			makeContextCurrent(window);
 		}
 
 		inline void defaultWindowHints() const
 		{
-			GLW::Window::defaultWindowHints();
+			GLW::defaultWindowHints();
 		}
 
 		inline void windowHinti(WindowHint hint, int value) const
 		{
-			GLW::Window::windowHinti(hint, value);
+			GLW::windowHinti(hint, value);
 		}
 		
 		inline void windowHint(WindowHint hint, WindowHintValue value) const
 		{
-			GLW::Window::windowHint(hint, value);
+			GLW::windowHint(hint, value);
 		}
 
 		inline void windowHintString(WindowStringHint hint, std::string_view value) const
 		{
-			GLW::Window::windowHintString(hint, value);
+			GLW::windowHintString(hint, value);
 		}
 
 		inline bool windowShouldClose() const
 		{
-			return GLW::Window::windowShouldClose(window);
+			return GLW::windowShouldClose(window);
 		}
 
 		inline void setWindowShouldClose(bool value) const
 		{
-			GLW::Window::setWindowShouldClose(window, value);
+			GLW::setWindowShouldClose(window, value);
 		}
 
 		inline void setWindowTitle(std::string_view title) const
 		{
-			GLW::Window::setWindowTitle(window, title);
+			GLW::setWindowTitle(window, title);
 		}
 
 		inline void setWindowIcon(int count, const GLFWimage* images) const
 		{
-			GLW::Window::setWindowIcon(window, count, images);
+			GLW::setWindowIcon(window, count, images);
 		}
 
 		inline void getWindowPos(int* xpos, int* ypos) const
 		{
-			GLW::Window::getWindowPos(window, xpos, ypos);
+			GLW::getWindowPos(window, xpos, ypos);
 		}
 
 		inline ivec2 getWindowPos() const
 		{
-			return GLW::Window::getWindowPos(window);
+			return GLW::getWindowPos(window);
 		}
 
 		inline void getWindowSize(int* width, int* height) const
 		{
-			GLW::Window::getWindowSize(window, width, height);
+			GLW::getWindowSize(window, width, height);
 		}
 		
 		inline ivec2 getWindowSize() const
 		{
-			return GLW::Window::getWindowSize(window);
+			return GLW::getWindowSize(window);
 		}
 		
 		inline void setWindowSizeLimits(int minwidth, int minheight, int maxwidth, int maxheight) const
 		{
-			GLW::Window::setWindowSizeLimits(window, minwidth, minheight, maxwidth, maxheight);
+			GLW::setWindowSizeLimits(window, minwidth, minheight, maxwidth, maxheight);
 		}
 		
 		inline void setWindowSizeLimits(const ivec2& mins, const ivec2& maxs) const
 		{
-			GLW::Window::setWindowSizeLimits(window, mins, maxs);
+			GLW::setWindowSizeLimits(window, mins, maxs);
 		}
 		
 		inline void setWindowSizeLimits(const ivec4& dimensions) const
 		{
-			GLW::Window::setWindowSizeLimits(window, dimensions);
+			GLW::setWindowSizeLimits(window, dimensions);
 		}
 
 		inline void setWindowAspectRatio(int numer, int denom) const
 		{
-			GLW::Window::setWindowAspectRatio(window, numer, denom);
+			GLW::setWindowAspectRatio(window, numer, denom);
 		}
 		
 		inline void setWindowAspectRatio(const ivec2& numer_denom) const
 		{
-			GLW::Window::setWindowAspectRatio(window, numer_denom);
+			GLW::setWindowAspectRatio(window, numer_denom);
 		}
 		
 		inline void setWindowSize(int width, int height)
 		{
-			GLW::Window::setWindowSize(window, width, height);
+			GLW::setWindowSize(window, width, height);
 			dimensions = (width << 16) | height;
 		}
 		
 		inline void setWindowSize(const ivec2& width_height)
 		{
-			GLW::Window::setWindowSize(window, width_height);
+			GLW::setWindowSize(window, width_height);
 			dimensions = (width_height.x << 16) | width_height.y;
 		}
 
 		inline void getFramebufferSize(int* width, int* height) const
 		{
-			GLW::Window::getFramebufferSize(window, width, height);
+			GLW::getFramebufferSize(window, width, height);
 		}
 		
 		inline ivec2 getFramebufferSize() const
 		{
-			return GLW::Window::getFramebufferSize(window);
+			return GLW::getFramebufferSize(window);
 		}
 
 		inline void getWindowFrameSize(int* left, int* top, int* right, int* bottom) const
 		{
-			GLW::Window::getWindowFrameSize(window, left, top, right, bottom);
+			GLW::getWindowFrameSize(window, left, top, right, bottom);
 		}
 
 		inline ivec4 getWindowFrameSize() const
 		{
-			return GLW::Window::getWindowFrameSize(window);
+			return GLW::getWindowFrameSize(window);
 		}
 
 		inline void getWindowContentScale(float* xscale, float* yscale) const
 		{
-			GLW::Window::getWindowContentScale(window, xscale, yscale);
+			GLW::getWindowContentScale(window, xscale, yscale);
 		}
 		
 		inline vec2 getWindowContentScale() const
 		{
-			return GLW::Window::getWindowContentScale(window);
+			return GLW::getWindowContentScale(window);
 		}
 
 		inline float getWindowOpacity() const
 		{
-			return GLW::Window::getWindowOpacity(window);
+			return GLW::getWindowOpacity(window);
 		}
 
 		inline void setWindowOpacity(float opacity) const
 		{
-			GLW::Window::setWindowOpacity(window, opacity);
+			GLW::setWindowOpacity(window, opacity);
 		}
 
 		inline void iconifyWindow() const
 		{
-			GLW::Window::iconifyWindow(window);
+			GLW::iconifyWindow(window);
 		}
 
 		inline void restoreWindow() const
 		{
-			GLW::Window::restoreWindow(window);
+			GLW::restoreWindow(window);
 		}
 
 		inline void maximizeWindow() const
 		{
-			GLW::Window::maximizeWindow(window);
+			GLW::maximizeWindow(window);
 		}
 
 		inline void showWindow() const
 		{
-			GLW::Window::showWindow(window);
+			GLW::showWindow(window);
 		}
 
 		inline void hideWindow() const
 		{
-			GLW::Window::hideWindow(window);
+			GLW::hideWindow(window);
 		}
 
 		inline void focusWindow() const
 		{
-			GLW::Window::focusWindow(window);
+			GLW::focusWindow(window);
 		}
 
 		inline void requestWindowAttention() const
 		{
-			GLW::Window::requestWindowAttention(window);
+			GLW::requestWindowAttention(window);
 		}
 
 		inline GLFWmonitor* getWindowMonitor() const
 		{
-			return GLW::Window::getWindowMonitor(window);
+			return GLW::getWindowMonitor(window);
 		}
 
 		inline void setWindowMonitor(GLFWmonitor* monitor, int xpos, int ypos, int width, int height, int refreshRate) const
 		{
-			GLW::Window::setWindowMonitor(window, monitor, xpos, ypos, width, height, refreshRate);
+			GLW::setWindowMonitor(window, monitor, xpos, ypos, width, height, refreshRate);
 		}
 		
 		inline void setWindowMonitor(GLFWmonitor* monitor, const ivec2& pos, const ivec2& dimensions, int refreshRate) const
 		{
-			GLW::Window::setWindowMonitor(window, monitor, pos, dimensions, refreshRate);
+			GLW::setWindowMonitor(window, monitor, pos, dimensions, refreshRate);
 		}
 
 		inline int getWindowAttribi(WindowAttrib attrib) const
 		{
-			return GLW::Window::getWindowAttribi(window, attrib);
+			return GLW::getWindowAttribi(window, attrib);
 		}
 		
 		inline WindowHintValue getWindowAttrib(WindowAttrib attrib) const
 		{
-			return GLW::Window::getWindowAttrib(window, attrib);
+			return GLW::getWindowAttrib(window, attrib);
 		}
 
 		inline void setWindowAttribi(WindowAttrib attrib, int value) const
 		{
-			GLW::Window::setWindowAttribi(window, attrib, value);
+			GLW::setWindowAttribi(window, attrib, value);
 		}
 		
 		inline void setWindowAttrib(WindowAttrib attrib, WindowHintValue value) const
 		{
-			GLW::Window::setWindowAttrib(window, attrib, value);
+			GLW::setWindowAttrib(window, attrib, value);
 		}
 
 		inline void setWindowUserPointer(void* pointer) const
 		{
-			GLW::Window::setWindowUserPointer(window, pointer);
+			GLW::setWindowUserPointer(window, pointer);
 		}
 
 		inline void* getWindowUserPointer() const
 		{
-			return GLW::Window::getWindowUserPointer(window);
+			return GLW::getWindowUserPointer(window);
 		}
 
 		inline windowPosCallback setWindowPosCallback(windowPosCallback callback) const
 		{
-			return GLW::Window::setWindowPosCallback(window, callback);
+			return GLW::setWindowPosCallback(window, callback);
 		}
 
 		inline windowSizeCallback setWindowSizeCallback(windowSizeCallback callback)
 		{
-			return GLW::Window::setWindowSizeCallback(window, callback);
+			return GLW::setWindowSizeCallback(window, callback);
 		}
 
 		inline windowCloseCallback setWindowCloseCallback(windowCloseCallback callback) const
 		{
-			return GLW::Window::setWindowCloseCallback(window, callback);
+			return GLW::setWindowCloseCallback(window, callback);
 		}
 
 		inline windowRefreshCallback setWindowRefreshCallback(windowRefreshCallback callback) const
 		{
-			return GLW::Window::setWindowRefreshCallback(window, callback);
+			return GLW::setWindowRefreshCallback(window, callback);
 		}
 
 		inline windowFocusCallback setWindowFocusCallback(windowFocusCallback callback) const
 		{
-			return GLW::Window::setWindowFocusCallback(window, callback);
+			return GLW::setWindowFocusCallback(window, callback);
 		}
 
 		inline windowIconifyCallback setWindowIconifyCallback(windowIconifyCallback callback) const
 		{
-			return GLW::Window::setWindowIconifyCallback(window, callback);
+			return GLW::setWindowIconifyCallback(window, callback);
 		}
 
 		inline windowMaximizeCallback setWindowMaximizeCallback(windowMaximizeCallback callback) const
 		{
-			return GLW::Window::setWindowMaximizeCallback(window, callback);
+			return GLW::setWindowMaximizeCallback(window, callback);
 		}
 
 		inline framebufferSizeCallback setFramebufferSizeCallback(framebufferSizeCallback callback) const
 		{
-			return GLW::Window::setFramebufferSizeCallback(window, callback);
+			return GLW::setFramebufferSizeCallback(window, callback);
 		}
 
 		inline windowContentScaleCallback setWindowContentScaleCallback(windowContentScaleCallback callback) const
 		{
-			return GLW::Window::setWindowContentScaleCallback(window, callback);
+			return GLW::setWindowContentScaleCallback(window, callback);
 		}
 
 		inline static void pollEvents()
 		{
-			GLW::Window::pollEvents();
+			GLW::pollEvents();
 		}
 
 		inline static void waitEvents()
 		{
-			GLW::Window::waitEvents();
+			GLW::waitEvents();
 		}
 
 		inline static void waitEventsTimeout(double timeout)
 		{
-			GLW::Window::waitEventsTimeout(timeout);
+			GLW::waitEventsTimeout(timeout);
 		}
 
 		inline static void postEmptyEvent()
 		{
-			GLW::Window::postEmptyEvent();
+			GLW::postEmptyEvent();
 		}
 
 		inline void swapBuffers() const
 		{
-			GLW::Window::swapBuffers(window);
+			GLW::swapBuffers(window);
 		}
 
 		inline bool open() const
 		{
-			return !GLW::Window::windowShouldClose(window);
+			return !GLW::windowShouldClose(window);
 		}
 
 		inline void update() const

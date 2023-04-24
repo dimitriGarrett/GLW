@@ -11,8 +11,3 @@
 #include "Input/Mouse.h"
 #include "Input/RawMouseMotion.h"
 #include "Input/Time.h"
-
-using namespace GLW::Callback;
-using namespace GLW::Cursor;
-using namespace GLW::Init;
-using namespace GLW::Key;

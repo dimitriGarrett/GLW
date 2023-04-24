@@ -1,22 +1,22 @@
 #include "Time.h"
 #include "../glfw/glfw3.h"
 
-inline double GLW::Time::getTime()
+inline double GLW::getTime()
 {
 	return glfwGetTime();
 }
 
-inline void GLW::Time::setTime(double time)
+inline void GLW::setTime(double time)
 {
 	glfwSetTime(time);
 }
 
-inline uint64_t GLW::Time::getTimerValue()
+inline uint64_t GLW::getTimerValue()
 {
 	return glfwGetTimerValue();
 }
 
-inline uint64_t GLW::Time::getTimerFrequency()
+inline uint64_t GLW::getTimerFrequency()
 {
 	return glfwGetTimerFrequency();
 }

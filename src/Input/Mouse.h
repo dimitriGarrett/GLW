@@ -14,9 +14,6 @@ namespace GLW
 		REPEAT = 2
 	};
 
-	namespace Mouse
-	{
-		//Returns the last reported state of a mouse button for the specified window
-		GLW_API MouseState getMouseButton(GLFWwindow* window, int button);
-	}
+	//Returns the last reported state of a mouse button for the specified window
+	GLW_API MouseState getMouseButton(GLFWwindow* window, int button);
 }

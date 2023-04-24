@@ -1,12 +1,12 @@
 #include "Monitor.h"
 #include "glfw/glfw3.h"
 
-inline GLFWmonitor** GLW::Monitor::getMonitors(int* count)
+inline GLFWmonitor** GLW::getMonitors(int* count)
 {
 	return glfwGetMonitors(count);
 }
 
-inline std::vector<GLFWmonitor*> GLW::Monitor::getMonitors()
+inline std::vector<GLFWmonitor*> GLW::getMonitors()
 {
 	std::vector<GLFWmonitor*> temp;
 	int count;
@@ -18,72 +18,72 @@ inline std::vector<GLFWmonitor*> GLW::Monitor::getMonitors()
 	return temp;
 }
 
-inline GLFWmonitor* GLW::Monitor::getPrimaryMonitor()
+inline GLFWmonitor* GLW::getPrimaryMonitor()
 {
 	return glfwGetPrimaryMonitor();
 }
 
-inline void GLW::Monitor::getMonitorPos(GLFWmonitor* monitor, int* xpos, int* ypos)
+inline void GLW::getMonitorPos(GLFWmonitor* monitor, int* xpos, int* ypos)
 {
 	glfwGetMonitorPos(monitor, xpos, ypos);
 }
 
-inline void GLW::Monitor::getMonitorWorkarea(GLFWmonitor* monitor, int* xpos, int* ypos, int* width, int* height)
+inline void GLW::getMonitorWorkarea(GLFWmonitor* monitor, int* xpos, int* ypos, int* width, int* height)
 {
 	glfwGetMonitorWorkarea(monitor, xpos, ypos, width, height);
 }
 
-inline void GLW::Monitor::getMonitorPhysicalSize(GLFWmonitor* monitor, int* widthMM, int* heightMM)
+inline void GLW::getMonitorPhysicalSize(GLFWmonitor* monitor, int* widthMM, int* heightMM)
 {
 	glfwGetMonitorPhysicalSize(monitor, widthMM, heightMM);
 }
 
-inline void GLW::Monitor::getMonitorContentScale(GLFWmonitor* monitor, float* xscale, float* yscale)
+inline void GLW::getMonitorContentScale(GLFWmonitor* monitor, float* xscale, float* yscale)
 {
 	glfwGetMonitorContentScale(monitor, xscale, yscale);
 }
 
-inline std::string GLW::Monitor::getMonitorName(GLFWmonitor* monitor)
+inline std::string GLW::getMonitorName(GLFWmonitor* monitor)
 {
 	return glfwGetMonitorName(monitor);
 }
 
-inline void GLW::Monitor::setMonitorUserPointer(GLFWmonitor* monitor, void* pointer)
+inline void GLW::setMonitorUserPointer(GLFWmonitor* monitor, void* pointer)
 {
 	glfwSetMonitorUserPointer(monitor, pointer);
 }
 
-inline void* GLW::Monitor::getMonitorUserPointer(GLFWmonitor* monitor)
+inline void* GLW::getMonitorUserPointer(GLFWmonitor* monitor)
 {
 	return glfwGetMonitorUserPointer(monitor);
 }
 
-inline GLW::monitorCallback GLW::Monitor::setMonitorCallback(monitorCallback callback)
+inline GLW::monitorCallback GLW::setMonitorCallback(monitorCallback callback)
 {
 	return glfwSetMonitorCallback(callback);
 }
 
-inline const GLFWvidmode* GLW::Monitor::getVideoModes(GLFWmonitor* monitor, int* count)
+inline const GLFWvidmode* GLW::getVideoModes(GLFWmonitor* monitor, int* count)
 {
 	return glfwGetVideoModes(monitor, count);
 }
 
-inline const GLFWvidmode* GLW::Monitor::getVideoMode(GLFWmonitor* monitor)
+inline const GLFWvidmode* GLW::getVideoMode(GLFWmonitor* monitor)
 {
 	return glfwGetVideoMode(monitor);
 }
 
-inline void GLW::Monitor::setGamma(GLFWmonitor* monitor, float gamma)
+inline void GLW::setGamma(GLFWmonitor* monitor, float gamma)
 {
 	glfwSetGamma(monitor, gamma);
 }
 
-inline const GLFWgammaramp* GLW::Monitor::getGammaRamp(GLFWmonitor* monitor)
+inline const GLFWgammaramp* GLW::getGammaRamp(GLFWmonitor* monitor)
 {
 	return glfwGetGammaRamp(monitor);
 }
 
-inline void GLW::Monitor::setGammaRamp(GLFWmonitor* monitor, const GLFWgammaramp* ramp)
+inline void GLW::setGammaRamp(GLFWmonitor* monitor, const GLFWgammaramp* ramp)
 {
 	glfwSetGammaRamp(monitor, ramp);
 }

@@ -1,27 +1,27 @@
 #include "Context.h"
 #include "../glfw/glfw3.h"
 
-inline void GLW::Context::makeContextCurrent(GLFWwindow* window)
+inline void GLW::makeContextCurrent(GLFWwindow* window)
 {
 	glfwMakeContextCurrent(window);
 }
 
-inline GLFWwindow* GLW::Context::getCurrentContext()
+inline GLFWwindow* GLW::getCurrentContext()
 {
 	return glfwGetCurrentContext();
 }
 
-inline void GLW::Context::swapInterval(int interval)
+inline void GLW::swapInterval(int interval)
 {
 	glfwSwapInterval(interval);
 }
 
-inline bool GLW::Context::extensionSupported(std::string_view extension)
+inline bool GLW::extensionSupported(std::string_view extension)
 {
 	return static_cast<bool>(glfwExtensionSupported(extension.data()));
 }
 
-inline GLFWglproc GLW::Context::getProcAddress(std::string_view procname)
+inline GLFWglproc GLW::getProcAddress(std::string_view procname)
 {
 	return glfwGetProcAddress(procname.data());
 }

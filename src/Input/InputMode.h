@@ -24,12 +24,9 @@ namespace GLW
 		CURSOR_DISABLED = 0x00034003
 	};
 
-	namespace InputMode
-	{
-		//Sets an input option for the specified window
-		GLW_API void setInputMode(GLFWwindow* window, InputModeMode mode, InputModeValue value);
+	//Sets an input option for the specified window
+	GLW_API void setInputMode(GLFWwindow* window, InputModeMode mode, InputModeValue value);
 
-		//Returns the value of an input option for the specified window
-		GLW_API InputModeValue getInputMode(GLFWwindow* window, InputModeMode mode);
-	}
+	//Returns the value of an input option for the specified window
+	GLW_API InputModeValue getInputMode(GLFWwindow* window, InputModeMode mode);
 }

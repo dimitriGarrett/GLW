@@ -18,31 +18,28 @@ namespace GLW
 
 	using errorCallback = void(*)(int error_code, const char* description);
 
-	namespace Init
-	{
-		//Initializes the GLFW library
-		GLW_API bool init();
+	//Initializes the GLFW library
+	GLW_API bool init();
 
-		//Terminates the GLFW library
-		GLW_API void terminate();
+	//Terminates the GLFW library
+	GLW_API void terminate();
 
-		//Sets the specified init hint to the desired value
-		GLW_API void initHint(InitHint hint, int value);
+	//Sets the specified init hint to the desired value
+	GLW_API void initHint(InitHint hint, int value);
 
-		//Retrieves the version of the GLFW library
-		GLW_API void getVersion(int* major, int* minor, int* rev);
-		//Retrieves the version of the GLFW library
-		GLW_API std::pair<std::pair<int, int>, int> getVersion();
+	//Retrieves the version of the GLFW library
+	GLW_API void getVersion(int* major, int* minor, int* rev);
+	//Retrieves the version of the GLFW library
+	GLW_API std::pair<std::pair<int, int>, int> getVersion();
 
-		//Returns a string describing the compile-time configuration
-		GLW_API std::string_view getVersionString();
+	//Returns a string describing the compile-time configuration
+	GLW_API std::string_view getVersionString();
 
-		//Returns and clears the last error for the calling thread
-		GLW_API ErrorCode getError(const char** description);
-		//Returns and clears the last error for the calling thread
-		GLW_API std::pair<ErrorCode, std::string> getError();
+	//Returns and clears the last error for the calling thread
+	GLW_API ErrorCode getError(const char** description);
+	//Returns and clears the last error for the calling thread
+	GLW_API std::pair<ErrorCode, std::string> getError();
 
-		//Sets the error callback
-		GLW_API errorCallback setErrorCallback(errorCallback callback);
-	}
+	//Sets the error callback
+	GLW_API errorCallback setErrorCallback(errorCallback callback);
 }

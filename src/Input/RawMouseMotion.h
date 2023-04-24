@@ -4,9 +4,6 @@
 
 namespace GLW
 {
-	namespace RawMouseMotion
-	{
-		//Returns whether raw mouse motion is supported
-		GLW_API bool rawMouseMotionSupported();
-	}
+	//Returns whether raw mouse motion is supported
+	GLW_API bool rawMouseMotionSupported();
 }

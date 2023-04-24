@@ -1,27 +1,27 @@
 #include "Init.h"
 #include "../glfw/glfw3.h"
 
-inline bool GLW::Init::init()
+inline bool GLW::init()
 {
 	return glfwInit();
 }
 
-inline void GLW::Init::terminate()
+inline void GLW::terminate()
 {
 	glfwTerminate();
 }
 
-inline void GLW::Init::initHint(InitHint hint, int value)
+inline void GLW::initHint(InitHint hint, int value)
 {
 	glfwInitHint(static_cast<int>(hint), value);
 }
 
-inline void GLW::Init::getVersion(int* major, int* minor, int* rev)
+inline void GLW::getVersion(int* major, int* minor, int* rev)
 {
 	glfwGetVersion(major, minor, rev);
 }
 
-inline std::pair<std::pair<int, int>, int> GLW::Init::getVersion()
+inline std::pair<std::pair<int, int>, int> GLW::getVersion()
 {
 	int major;
 	int minor;
@@ -32,17 +32,17 @@ inline std::pair<std::pair<int, int>, int> GLW::Init::getVersion()
 	return { { major, minor }, rev };
 }
 
-inline std::string_view GLW::Init::getVersionString()
+inline std::string_view GLW::getVersionString()
 {
 	return glfwGetVersionString();
 }
 
-inline GLW::ErrorCode GLW::Init::getError(const char** description)
+inline GLW::ErrorCode GLW::getError(const char** description)
 {
 	return static_cast<ErrorCode>(glfwGetError(description));
 }
 
-inline std::pair<GLW::ErrorCode, std::string> GLW::Init::getError()
+inline std::pair<GLW::ErrorCode, std::string> GLW::getError()
 {
 	const char* temp;
 	ErrorCode tempError = getError(&temp);
@@ -50,7 +50,7 @@ inline std::pair<GLW::ErrorCode, std::string> GLW::Init::getError()
 	return { tempError, temp };
 }
 
-inline GLW::errorCallback GLW::Init::setErrorCallback(errorCallback callback)
+inline GLW::errorCallback GLW::setErrorCallback(errorCallback callback)
 {
 	return glfwSetErrorCallback(callback);
 }

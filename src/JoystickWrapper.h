@@ -13,82 +13,82 @@ namespace GLW
 
 		inline bool present() const
 		{
-			return Joystick::joystickPresent(jid);
+			return joystickPresent(jid);
 		}
 
 		inline const float* getAxes(int* count) const
 		{
-			return Joystick::getJoystickAxes(jid, count);
+			return getJoystickAxes(jid, count);
 		}
 
 		inline std::vector<float> getAxes() const
 		{
-			return Joystick::getJoystickAxes(jid);
+			return getJoystickAxes(jid);
 		}
 
 		inline const unsigned char* getButtons(int* count) const
 		{
-			return Joystick::getJoystickButtons(jid, count);
+			return getJoystickButtons(jid, count);
 		}
 
 		inline std::vector<unsigned char> getButtons() const
 		{
-			return Joystick::getJoystickButtons(jid);
+			return getJoystickButtons(jid);
 		}
 
 		inline const unsigned char* getHats(int* count) const
 		{
-			return Joystick::getJoystickHats(jid, count);
+			return getJoystickHats(jid, count);
 		}
 
 		inline std::vector<unsigned char> getHats() const
 		{
-			return Joystick::getJoystickHats(jid);
+			return getJoystickHats(jid);
 		}
 
 		inline std::string getName() const
 		{
-			return Joystick::getJoystickName(jid);
+			return getJoystickName(jid);
 		}
 
 		inline std::string getGUID() const
 		{
-			return Joystick::getJoystickGUID(jid);
+			return getJoystickGUID(jid);
 		}
 
 		inline void setUserPointer(void* data) const
 		{
-			Joystick::setJoystickUserPointer(jid, data);
+			setJoystickUserPointer(jid, data);
 		}
 
 		inline void* getUserPointer() const
 		{
-			return Joystick::getJoystickUserPointer(jid);
+			return getJoystickUserPointer(jid);
 		}
 
 		inline bool isGamepad() const
 		{
-			return Joystick::joystickIsGamepad(jid);
+			return joystickIsGamepad(jid);
 		}
 
 		inline static void setJoystickCallback(joystickCallback callback)
 		{
-			Joystick::setJoystickCallback(callback);
+			setJoystickCallback(callback);
 		}
 
 		inline static int updateGamepadMappings(std::string_view string)
 		{
-			Joystick::updateGamepadMappings(string);
+			updateGamepadMappings(string);
 		}
 
 		inline std::string getGamepadName() const
 		{
-			return Joystick::getGamepadName(jid);
+			return GLW::getGamepadName(jid);
 		}
 
 		inline int getGamepadState(GLFWgamepadstate* state) const
 		{
-			return Joystick::getGamepadState(jid, state);
+			return GLW::getGamepadState(jid, state);
 		}
 
 		int jid;
