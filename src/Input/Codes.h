@@ -20,7 +20,7 @@ namespace GLW
 
 	enum KeyValue : unsigned int
 	{
-		KEY_UNKNOWN   = -1,
+		KEY_UNKNOWN   = (unsigned int)-1,
 		KEY_SPACE   = 32,
 		KEY_APOSTROPHE   = 39,
 		KEY_COMMA   = 44,
