@@ -18,6 +18,21 @@ namespace GLW
 		{
 		}
 
+		WindowWrapper(const WindowWrapper&) = delete;
+		WindowWrapper& operator=(const WindowWrapper&) = delete;
+
+		WindowWrapper(WindowWrapper&& rhs) noexcept
+			: dimensions(std::exchange(rhs.dimensions, 0)), name(std::exchange(rhs.name, "")), window(std::exchange(rhs.window, nullptr))
+		{
+		}
+
+		WindowWrapper& operator=(WindowWrapper&& rhs) noexcept
+		{
+			dimensions = std::exchange(rhs.dimensions, 0);
+			name = std::exchange(rhs.name, "");
+			window = std::exchange(rhs.window, nullptr);
+		}
+
 		~WindowWrapper()
 		{
 			GLW::destroyWindow(window);
@@ -83,6 +98,16 @@ namespace GLW
 		inline void setWindowIcon(int count, const GLFWimage* images) const
 		{
 			GLW::setWindowIcon(window, count, images);
+		}
+
+		inline void setWindowIcon(int count, const Texture* images) const
+		{
+			GLW::setWindowIcon(window, count, images);
+		}
+		
+		inline void setWindowIcon(const std::vector<Texture>& images) const
+		{
+			GLW::setWindowIcon(window, static_cast<int>(images.size()), images.data());
 		}
 
 		inline void getWindowPos(int* xpos, int* ypos) const
@@ -356,6 +381,6 @@ namespace GLW
 		uint32_t dimensions = 0;
 		std::string name = "";
 
-		GLFWwindow* window;
+		GLFWwindow* window = nullptr;
 	};
 }

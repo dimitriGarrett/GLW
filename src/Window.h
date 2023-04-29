@@ -4,14 +4,11 @@
 #include "Vector.h"
 
 #include <string_view>
+#include <vector>
 
 struct GLFWwindow;
 struct GLFWmonitor;
 struct GLFWimage;
-
-#ifdef _WIN32
-	#undef NO_ERROR
-#endif
 
 namespace GLW
 {
@@ -81,7 +78,7 @@ namespace GLW
 		FALSE = 0,
 		TRUE = 1,
 
-		DONT_CARE = -1,
+		DONT_CARE = (unsigned int)-1,
 
 		NO_API = 0,
 		OPENGL_API = 0x00030001,
@@ -177,8 +174,22 @@ namespace GLW
 	//Sets the title of the specified window
 	GLW_API void setWindowTitle(GLFWwindow* window, std::string_view title);
 
+	struct Texture
+	{
+		int width;
+		int height;
+		unsigned char* data;
+	};
+
 	//Sets the icon for the specified window
 	GLW_API void setWindowIcon(GLFWwindow* window, int count, const GLFWimage* images);
+	//Sets the icon for the specified window
+	GLW_API void setWindowIcon(GLFWwindow* window, int count, const Texture* images);
+	//Sets the icon for the specified window
+	static void setWindowIcon(GLFWwindow* window, const std::vector<Texture>& images)
+	{
+		setWindowIcon(window, static_cast<int>(images.size()), images.data());
+	}
 
 	//Retrieves the position of the content area of the specified window
 	GLW_API void getWindowPos(GLFWwindow* window, int* xpos, int* ypos);

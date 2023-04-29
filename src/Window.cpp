@@ -51,6 +51,11 @@ inline void GLW::setWindowIcon(GLFWwindow* window, int count, const GLFWimage* i
 	glfwSetWindowIcon(window, count, images);
 }
 
+inline void GLW::setWindowIcon(GLFWwindow* window, int count, const Texture* images)
+{
+	glfwSetWindowIcon(window, count, reinterpret_cast<const GLFWimage*>(images));
+}
+
 inline void GLW::getWindowPos(GLFWwindow* window, int* xpos, int* ypos)
 {
 	glfwGetWindowPos(window, xpos, ypos);
