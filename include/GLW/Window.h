@@ -176,6 +176,11 @@ namespace GLW
 
 	struct Texture
 	{
+		explicit Texture(int Width, int Height, unsigned char* Data = nullptr)
+			: width(Width), height(Height), data(Data)
+		{
+		}
+
 		int width;
 		int height;
 		unsigned char* data;
